@@ -3,6 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kid_smart_learning/constants/constants.dart';
 import 'package:kid_smart_learning/constants/text_string.dart';
 
+import '../../constants/image_string.dart';
+import '../login_screen/login_screen.dart';
+
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
@@ -10,6 +13,13 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // we use duration to navigate to the login screen after 3 seconds
+    // route > false refer to no return when the user press the back button
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.pushNamedAndRemoveUntil(
+          context, LoginScreen.routeName, (route) => false);
+    });
+
     return Scaffold(
       body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -38,7 +48,7 @@ class SplashScreen extends StatelessWidget {
             ],
           ),
           Image.asset(
-            "assets/images/studentt.png",
+            kSplashScreenImage,
             height: 200,
             width: 160,
           ),

@@ -21,15 +21,19 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: kPrimaryColor,
         primaryColor: kPrimaryColor,
-        textTheme: GoogleFonts.sourceCodeProTextTheme(
-          Theme.of(context).textTheme.apply().copyWith(
-                bodyLarge: const TextStyle(
-                  color: kTextWhiteColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 35.0,
+        textTheme:
+            GoogleFonts.sourceCodeProTextTheme(Theme.of(context).textTheme)
+                .apply()
+                .copyWith(
+                  bodyLarge: const TextStyle(
+                      color: kTextWhiteColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 35.0),
+                  titleSmall: const TextStyle(
+                      color: kTextWhiteColor,
+                      fontWeight: FontWeight.w300,
+                      fontSize: 18.0),
                 ),
-              ),
-        ),
       ),
       initialRoute: SplashScreen.routeName,
 
