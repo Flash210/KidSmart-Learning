@@ -2,12 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:kid_smart_learning/constants/image_string.dart';
 import 'package:kid_smart_learning/constants/text_string.dart';
 
+import '../../componet/custom_button.dart';
 import '../../constants/constants.dart';
 
-class LoginScreen extends StatelessWidget {
+late bool _passwordVisible;
+
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   static String routeName = '/login_screen';
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _passwordVisible = true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +62,7 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(
                     height: kDefaultPadding / 6,
                   ),
-                  Text("Sign in to continue ",
+                  Text(kSignInToContinue,
                       style: Theme.of(context).textTheme.titleSmall),
                 ],
               ),
@@ -73,61 +87,20 @@ class LoginScreen extends StatelessWidget {
                     Form(
                         child: Column(
                       children: [
-                        TextFormField(
-                            textAlign: TextAlign.start,
-                            keyboardType: TextInputType.emailAddress,
-                            style: const TextStyle(
-                              color: kTextBlackColor,
-                              fontSize: 17,
-                              fontWeight: FontWeight.w300,
-                            ),
-                            decoration: const InputDecoration(
-                              labelText: "Mobile Number/Email",
-                              floatingLabelBehavior:
-                                  FloatingLabelBehavior.always,
-                              isDense: true,
-                              labelStyle: TextStyle(
-                                color: kTextLightColor,
-                                fontSize: 15.0,
-                                height: 0.5,
-                              ),
-                              hintStyle: TextStyle(
-                                color: kTextBlackColor,
-                                fontSize: 15.0,
-                                height: 0.5,
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: kTextLightColor,
-                                  width: 0.7,
-                                ),
-                              ),
-                              border: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: kTextLightColor,
-                                ),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: kPrimaryColor,
-                                ),
-                              ),
-                              errorBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: kErrorBorderColor,
-                                ),
-                              ),
-                              focusedErrorBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: kErrorBorderColor,
-                                ),
-                              ),
-                              disabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: kTextLightColor,
-                                ),
-                              ),
-                            )),
+                        buildEmailfield(),
+                        const SizedBox(
+                          height: kDefaultPadding,
+                        ),
+                        buildPasswordField(),
+                        const SizedBox(
+                          height: kDefaultPadding,
+                        ),
+                        DefaultButton(
+                          onPressed: () {},
+                          title: kSignIn,
+                          iconData: Icons.arrow_forward_outlined,
+                        ),
+                        const SizedBox()
                       ],
                     )),
                   ],
@@ -138,5 +111,73 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  TextFormField buildEmailfield() {
+    return TextFormField(
+      textAlign: TextAlign.start,
+      keyboardType: TextInputType.emailAddress,
+      style: const TextStyle(
+        color: kTextBlackColor,
+        fontSize: 17,
+        fontWeight: FontWeight.w300,
+      ),
+      decoration: const InputDecoration(
+        labelText: kEmail,
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        isDense: true,
+      ),
+      validator: (value) {
+        RegExp regex = RegExp(emailPattern);
+
+        if (value == null || value.isEmpty) {
+          return kEmailError;
+          // if it is not matche with the regex pattern
+          // then it will return the error message
+          // for example if the user enter the email without @
+          // then it will return the error message
+        } else if (!regex.hasMatch(value)) {
+          return kEmailError2;
+        }
+      },
+    );
+  }
+
+  TextFormField buildPasswordField() {
+    return TextFormField(
+        obscureText: _passwordVisible,
+        textAlign: TextAlign.start,
+        keyboardType: TextInputType.visiblePassword,
+        style: const TextStyle(
+          color: kTextBlackColor,
+          fontSize: 17,
+          fontWeight: FontWeight.w300,
+        ),
+        decoration: InputDecoration(
+          labelText: kPassword,
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          isDense: true,
+          suffixIcon: IconButton(
+            onPressed: () {
+              setState(() {
+                _passwordVisible = !_passwordVisible;
+              });
+            },
+            icon: Icon(
+              _passwordVisible
+                  ? Icons.visibility_off_outlined
+                  : Icons.visibility_off_outlined,
+            ),
+            iconSize: kDefaultPadding,
+          ),
+        ),
+        validator: (value) {
+          RegExp regex = RegExp(passwordPattern);
+          if (value!.length < 5 || value.isEmpty) {
+            return kPasswordError;
+          } else if (!regex.hasMatch(value)) {
+            return kPasswordError2;
+          }
+        });
   }
 }

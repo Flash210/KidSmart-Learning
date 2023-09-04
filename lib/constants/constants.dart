@@ -12,3 +12,6 @@ const Color kErrorBorderColor = Color(0xFFE74c3C);
 
 //default size
 const double kDefaultPadding = 20.0;
+
+const String emailPattern = r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$';
+const String passwordPattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
