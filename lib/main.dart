@@ -30,9 +30,15 @@ class MyApp extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         fontSize: 35.0),
                     titleSmall: const TextStyle(
-                        color: kTextWhiteColor,
-                        fontWeight: FontWeight.w300,
-                        fontSize: 18.0),
+                      color: kTextWhiteColor,
+                      fontWeight: FontWeight.w300,
+                      fontSize: 22.0,
+                    ),
+                    titleMedium: const TextStyle(
+                      color: kTextWhiteColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 35.0,
+                    ),
                   ),
           inputDecorationTheme: const InputDecorationTheme(
             labelStyle: TextStyle(

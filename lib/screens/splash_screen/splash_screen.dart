@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kid_smart_learning/constants/constants.dart';
 import 'package:kid_smart_learning/constants/text_string.dart';
+import 'package:kid_smart_learning/screens/home_screen/home_screen.dart';
 
 import '../../constants/image_string.dart';
 import '../login_screen/login_screen.dart';
@@ -17,7 +18,7 @@ class SplashScreen extends StatelessWidget {
     // route > false refer to no return when the user press the back button
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushNamedAndRemoveUntil(
-          context, LoginScreen.routeName, (route) => false);
+          context, HomeScreen.routeName, (route) => false);
     });
 
     return Scaffold(
