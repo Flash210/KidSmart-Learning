@@ -22,139 +22,81 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                StudentInfo(studentName: "ll"),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    const SizedBox(height: kDefaultPadding / 2),
+                    const SizedBox(height: kDefaultPadding / 2),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Row(
-                          children: [
-                            Text(kWelcomeStudent1,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall
-                                    ?.copyWith(fontWeight: FontWeight.w200)),
-                            Text("kk",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall
-                                    ?.copyWith(fontWeight: FontWeight.w500)),
-                            SizedBox(height: kDefaultPadding / 6),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(context, '/profile_screen');
-                              },
-                              child: const CircleAvatar(
-                                minRadius: 50.0,
-                                maxRadius: 50.0,
-                                backgroundColor: kSecondaryColor,
-                                backgroundImage: AssetImage(kHomeScreenImage),
-                              ),
-                            )
-                          ],
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/attendance_screen');
+                          },
+                          child: Container(
+                              width: MediaQuery.of(context).size.width / 2.5,
+                              height: MediaQuery.of(context).size.height / 9,
+                              decoration: BoxDecoration(
+                                  color: kOtherColor,
+                                  borderRadius:
+                                      BorderRadius.circular(kDefaultPadding)),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(kAttendance,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium
+                                          ?.copyWith(
+                                              fontWeight: FontWeight.bold)),
+                                  Text(kPercentage,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall
+                                          ?.copyWith(
+                                              fontSize: 25.0,
+                                              color: kTextBlackColor,
+                                              fontWeight: FontWeight.w300)),
+                                ],
+                              )),
                         ),
-                        SizedBox(height: kDefaultPadding / 2),
-                        Text(
-                          kStudentClass,
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleSmall
-                              ?.copyWith(fontSize: 14.0),
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/attendance_screen');
+                          },
+                          child: Container(
+                              width: MediaQuery.of(context).size.width / 2.5,
+                              height: MediaQuery.of(context).size.height / 9,
+                              decoration: BoxDecoration(
+                                  color: kOtherColor,
+                                  borderRadius:
+                                      BorderRadius.circular(kDefaultPadding)),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(KFessDue,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium
+                                          ?.copyWith(
+                                              fontWeight: FontWeight.bold)),
+                                  Text(kPercentageF,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall
+                                          ?.copyWith(
+                                              fontSize: 25.0,
+                                              color: kTextBlackColor,
+                                              fontWeight: FontWeight.w300)),
+                                ],
+                              )),
                         ),
-                        SizedBox(height: kDefaultPadding / 2),
-                        Container(
-                          width: 100,
-                          height: 20,
-                          decoration: BoxDecoration(
-                              color: kOtherColor,
-                              borderRadius:
-                                  BorderRadius.circular(kDefaultPadding)),
-                          child: const Center(
-                            child: Text(kSchollYear,
-                                style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: kTextBlackColor,
-                                    fontWeight: FontWeight.w200)),
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, '/attendance_screen');
-                              },
-                              child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width / 2.5,
-                                  height:
-                                      MediaQuery.of(context).size.height / 9,
-                                  decoration: BoxDecoration(
-                                      color: kOtherColor,
-                                      borderRadius: BorderRadius.circular(
-                                          kDefaultPadding)),
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Text(kAttendance,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyMedium
-                                              ?.copyWith(
-                                                  fontWeight: FontWeight.bold)),
-                                      Text(kPercentage,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleSmall
-                                              ?.copyWith(
-                                                  fontSize: 25.0,
-                                                  color: kTextBlackColor,
-                                                  fontWeight: FontWeight.w300)),
-                                    ],
-                                  )),
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, '/attendance_screen');
-                              },
-                              child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width / 2.5,
-                                  height:
-                                      MediaQuery.of(context).size.height / 9,
-                                  decoration: BoxDecoration(
-                                      color: kOtherColor,
-                                      borderRadius: BorderRadius.circular(
-                                          kDefaultPadding)),
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Text(KFessDue,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyMedium
-                                              ?.copyWith(
-                                                  fontWeight: FontWeight.bold)),
-                                      Text(kPercentageF,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleSmall
-                                              ?.copyWith(
-                                                  fontSize: 25.0,
-                                                  color: kTextBlackColor,
-                                                  fontWeight: FontWeight.w300)),
-                                    ],
-                                  )),
-                            ),
-                          ],
-                        )
                       ],
-                    ),
+                    )
                   ],
                 ),
               ],
