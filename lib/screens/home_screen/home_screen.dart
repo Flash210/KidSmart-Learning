@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kid_smart_learning/constants/constants.dart';
+import 'package:kid_smart_learning/screens/assigment_screen/assignment_screen.dart';
 import 'package:kid_smart_learning/screens/home_screen/widgets/home_card.dart';
 import 'package:kid_smart_learning/screens/home_screen/widgets/student_attendance.dart';
 import 'package:kid_smart_learning/screens/home_screen/widgets/student_class.dart';
@@ -94,7 +95,10 @@ class HomeScreen extends StatelessWidget {
                         HomeCard(
                           title: kAssignment,
                           icon: kAssignmentImg,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, AssignmentScreen.routeName);
+                          },
                         ),
                       ],
                     ),

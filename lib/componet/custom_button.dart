@@ -7,12 +7,12 @@ import '../constants/text_string.dart';
 class DefaultButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String title;
-  final IconData iconData;
+  final IconData? iconData;
   const DefaultButton({
     Key? key,
     required this.onPressed,
     required this.title,
-    required this.iconData,
+    this.iconData,
   }) : super(key: key);
 
   @override
