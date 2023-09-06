@@ -20,6 +20,11 @@ class MyApp extends StatelessWidget {
       title: kAppName,
       theme: ThemeData.light().copyWith(
           scaffoldBackgroundColor: kPrimaryColor,
+          appBarTheme: const AppBarTheme(
+            elevation: 0.0,
+            color: kPrimaryColor,
+            centerTitle: true,
+          ),
           primaryColor: kPrimaryColor,
           textTheme:
               GoogleFonts.sourceCodeProTextTheme(Theme.of(context).textTheme)
@@ -32,12 +37,12 @@ class MyApp extends StatelessWidget {
                     titleSmall: const TextStyle(
                       color: kTextWhiteColor,
                       fontWeight: FontWeight.w300,
-                      fontSize: 22.0,
+                      fontSize: 20.0,
                     ),
                     titleMedium: const TextStyle(
                       color: kTextWhiteColor,
                       fontWeight: FontWeight.bold,
-                      fontSize: 35.0,
+                      fontSize: 22.0,
                     ),
                   ),
           inputDecorationTheme: const InputDecorationTheme(

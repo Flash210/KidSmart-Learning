@@ -3,15 +3,21 @@ import 'package:flutter/material.dart';
 
 import '../../../constants/constants.dart';
 
-class StudentAttendance extends StatelessWidget {
-  const StudentAttendance({super.key});
+class StudentData extends StatelessWidget {
+  StudentData(
+      {super.key,
+      required this.title,
+      required this.value,
+      required this.onTap});
+
+  final String title;
+  final String value;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.pushNamed(context, '/attendance_screen');
-      },
+      onTap: onTap,
       child: Container(
           width: MediaQuery.of(context).size.width / 2.5,
           height: MediaQuery.of(context).size.height / 9,
@@ -21,12 +27,12 @@ class StudentAttendance extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text(kAttendance,
+              Text(title,
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium
                       ?.copyWith(fontWeight: FontWeight.bold)),
-              Text(kPercentage,
+              Text(value,
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
                       fontSize: 25.0,
                       color: kTextBlackColor,

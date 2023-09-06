@@ -18,6 +18,13 @@ const SizedBox kDefaultSizedBox = SizedBox(
   height: kDefaultPadding,
 );
 
+const SizedBox kHalfWidhSizedBox = SizedBox(
+  width: kDefaultPadding / 2,
+);
+const SizedBox kHalfSizedbOX = SizedBox(
+  height: kDefaultPadding / 2,
+);
+
 const String emailPattern = r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$';
 const String passwordPattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
 

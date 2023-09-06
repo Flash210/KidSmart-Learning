@@ -10,6 +10,7 @@ import 'package:kid_smart_learning/screens/home_screen/widgets/student_info.dart
 import 'package:kid_smart_learning/screens/home_screen/widgets/student_year.dart';
 
 import '../../constants/image_string.dart';
+import '../profile_screen/profile_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -44,14 +45,26 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: kDefaultPadding / 6),
-                        StudentPicture(imgStudent: kHomeScreenImage),
+                        StudentPicture(
+                            imgStudent: kHomeScreenImage,
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, ProfileScreen.routeName);
+                            }),
                       ],
                     ),
                     const SizedBox(height: kDefaultPadding / 2),
                     const SizedBox(height: kDefaultPadding / 2),
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [StudentAttendance(), StudentDue()],
+                      children: [
+                        StudentData(
+                            title: kAttendance,
+                            value: kPercentage,
+                            onTap: () {}),
+                        StudentData(
+                            title: KFessDue, value: kPercentageF, onTap: () {})
+                      ],
                     )
                   ],
                 ),
