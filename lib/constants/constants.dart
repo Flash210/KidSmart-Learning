@@ -30,7 +30,7 @@ const String passwordPattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
 
 //home screen
 const String kHomeScreenTitle = "Home Screen";
-const String kWelcomeStudent1 = "Hi";
+const String kWelcomeStudent1 = "Hi ";
 const String kWelcomeStudent2 = "Wafa";
 const String kStudentClass = "Class A";
 const String kSchollYear = "2023-2024";

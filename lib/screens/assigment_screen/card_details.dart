@@ -67,7 +67,7 @@ class MyCircularCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(topicName,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: kTextBlackColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 17.0)),
@@ -79,13 +79,13 @@ class MyCircularCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Assign Date :",
+              const Text("Assign Date :",
                   style: TextStyle(
                     color: kTextLightColor,
                     fontWeight: FontWeight.bold,
                   )),
               Text(assignDate,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: kTextBlackColor,
                     fontWeight: FontWeight.bold,
                   )),
@@ -94,13 +94,13 @@ class MyCircularCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Last Date :",
+              const Text("Last Date :",
                   style: TextStyle(
                     color: kTextLightColor,
                     fontWeight: FontWeight.bold,
                   )),
               Text(lastDate,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: kTextBlackColor,
                     fontWeight: FontWeight.bold,
                   )),
@@ -109,13 +109,13 @@ class MyCircularCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Status :",
+              const Text("Status :",
                   style: TextStyle(
                     color: kTextLightColor,
                     fontWeight: FontWeight.bold,
                   )),
               Text(status,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: kTextBlackColor,
                     fontWeight: FontWeight.bold,
                   )),
